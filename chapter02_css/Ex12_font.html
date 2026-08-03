@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Hi+Melody&family=Moirai+One&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 16px;
+        }
+        div{
+            /* 글자 모양 : none(없음), italic(기울임).. */
+            font-style: none;
+            /* 글자 굵기 : bold(굵게), 100, 200...900 */
+            font-weight: bold;
+            /* 글자 크기 : px, pt, em, rem, % ... */
+            font-size: 1.1rem;
+        }
+        #t-div{
+            font-family: "Gasoek One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    부모 body <br>
+    <div>
+        1차 자식 div <br>
+        <div>
+            2차 자식 div <br>
+            <div id="t-div">3차 자식 div</div>
+        </div>
+    </div>
+</body>
+</html>

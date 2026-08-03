@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style-type: none;
+            background-color: gray;
+            overflow: hidden;
+        }
+        ul li{
+            float: left;
+        }
+        li a{
+            /* width, height 부여가 불가능
+                display : block 처리 후에 적용 가능 */
+            display: block;
+            width: 100px;
+            /* height: 50px;
+            line-height: 50px; 
+            가운데 정렬 하는 방법 중 하나
+            */
+            padding: 20px;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+        }
+        li a:hover{
+            background-color: tomato;
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Board</a></li>
+        <li><a href="#">Guest</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+    <div>본문</div>
+</body>
+</html>
