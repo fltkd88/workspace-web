@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 600px;
+            margin: auto;
+        }
+        h1{
+            color: limegreen;
+        }
+        .val1{
+            text-align: center;
+        }
+        table{
+            width: 100%;
+        }
+        table, th{
+            border-collapse : collapse;
+            border-color: gray;
+            border-style : solid;
+            border-width: 2px 0; 
+        }   
+        th {
+            background-color: lightgray;
+        }
+        td, th {
+            padding: 10px;
+        } 
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="val1">회원가입 폼</h1>
+        <form action="#">
+            <table>
+                <tr>
+                    <th colspan="2">필수정보</th>
+                </tr>
+                <tr>
+                    <td><label for="uId">아이디</label></td>
+                    <td><input type="text" id="uId"></td>
+                </tr>
+                <tr>
+                    <td><label for="pw">비밀번호</label></td>
+                    <td><input type="password" id="pw"></td>
+                </tr>
+                <tr>
+                    <td><label for="pw">비밀번호 확인</label></td>
+                    <td><input type="password" id="pw"></td>
+                </tr>
+                <tr>
+                    <td><label for="name">이름</label></td>
+                    <td><input type="text" id="name"></td>
+                </tr>
+                <tr>
+                    <td>성별</td>
+					<td>
+						<input type="radio" id ="man" name="gender" value="남" checked/><label for="man">남자</label>&nbsp;
+						<input type="radio" id ="woman" name="gender" value="여" /><label for="woman">여자</label>
+					</td>
+                </tr>
+                <tr>
+					<td><label for="phone" >연락처</label></td>
+					<td>
+						<select id="phone" name="mPhone1" >
+							<option value="010" selected>010</option>
+							<option value="011">011</option>
+							<option value="031">031</option>
+						</select>
+						-&nbsp;<input type="tel" name="mPhone2" size="8"/>&nbsp;
+						-&nbsp;<input type="tel" name="mPhone3" size="8"/>
+					</td>	
+				</tr>
+                <tr>
+                    <th colspan="2">선택정보</th>
+                </tr>
+                <tr>
+                    <td><label for="nic">닉네임</label></td>
+                    <td><input type="text" id="nic"></td>
+                </tr>
+                <tr>
+					<td><label for="mail" >이메일</label></td>
+                    <td><input type="email" name="mail" size="12"/>&nbsp;
+                    @<input type="text" id="email2" list="domain" placeholder="도메인 입력/선택" size="12"/>
+						<datalist id="domain">
+							<option value ="naver.com">naver.com</option>
+							<option value ="daum.net">daum.net</option>
+							<option value ="gmail.com">gmail.com</option>
+							<option value ="nate.com">nate.com</option>
+						</datalist>
+                    </td>
+                </tr> 
+                <tr>	
+					<td>이메일 수신</td>
+					<td>
+						<input type="radio" id ="yesEmail" name="receiveEamil" value="Y" checked/><label for="man">수신</label>&nbsp;
+						<input type="radio" id ="noEmail" name="receiveEamil" value="N" /><label for="woman">미수신</label>
+					</td>
+				</tr>
+				<tr>	
+					<td>SMS 수신</td>
+					<td>
+						<input type="radio" id ="yesSMS" name="receiveSMS" value="Y" checked/><label for="man">수신</label>&nbsp;
+						<input type="radio" id ="noSMS" name="receiveSMS" value="N" /><label for="woman">미수신</label>
+					</td>
+				</tr>
+				<tr>
+					<td>취미 활동</td>
+					<td>
+						<input type="checkbox" id="reading" name="hobbies" value="독서" checked/><label for="reading">독서</label>
+						<input type="checkbox" id="fishing" name="hobbies" value="낚시" /><label for="fishing">낚시</label>
+						<input type="checkbox" id="swim" name="hobbies" value="수영" /><label for="swim">수영</label>
+					</td>
+				</tr>
+				<tr>
+					<td><label for="profile">프로필 사진</label></td>
+					<td><input type="file" id="profile"/></td>
+				</tr>
+            </table>
+            </table>
+			<div class="val1">
+				<br />
+				<input type="submit" value="회원가입" onclick="join()"/>
+				<input type="reset" value="다시작성"/>
+			</div>
+        </form>
+    </div>
+</body>
+</html>

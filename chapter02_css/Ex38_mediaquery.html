@@ -1,0 +1,119 @@
+<!-- 
+	아래 사이트 참고
+	https://developer.mozilla.org/ko/docs/Learn/CSS/CSS_layout/Media_queries
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>미디어 쿼리 예제</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    h1 {
+      color: darkblue;
+    }
+
+    .example {
+      margin-bottom: 30px;
+    }
+
+    /* 기본 스타일 */
+    .example-box {
+      background-color: lightgray;
+      padding: 20px;
+      margin: 10px 0;
+    }
+
+    /* 
+		미디어 쿼리 예제 1 - max-width
+		- 화면 너비가 600px 까지 적용 == 600px 이하까지 적용
+	*/
+    @media screen and (max-width: 600px) {
+      .example-box.width {
+        background-color: lightcoral;
+        font-size: 14px;
+      }
+    }
+
+	/* 
+		미디어 쿼리 예제 2 - max-width
+		- 화면 너비가 600px 까지 적용 == 600px 이하까지 적용
+	*/
+	@media screen and (min-width: 320px) and (max-width: 479px) {
+		.example-box.multi-width {
+			background-color: orange;
+			font-size: 14px;
+		}
+	}
+	@media screen and (min-width: 480px) and (max-width: 767px) {
+		.example-box.multi-width {
+			background-color: rgb(71, 217, 161);
+			font-size: 14px;
+		}
+	}
+	@media screen and (min-width: 768px) and (max-width: 1023px) {
+		.example-box.multi-width {
+			background-color: rgb(48, 112, 185);
+			color: white;
+			font-size: 14px;
+		}
+	}
+	@media screen and (min-width: 1024px) {
+		.example-box.multi-width {
+			background-color: rgb(165, 110, 103);
+			color: white;
+			font-size: 14px;
+		}
+	}
+    @media (max-width: 600px) {
+      .example-box.multi-width {
+        background-color: rgb(238, 103, 187);
+        font-size: 14px;
+      }
+    }
+
+
+    /* 
+		미디어 쿼리 예제 3 - orientation
+		- 화면 방향이 가로 방향인지 판단
+	*/
+    @media (orientation: landscape) {
+      .example-box.orientation {
+        background-color: lightgreen;
+        font-size: 18px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <h1>미디어 쿼리 예제</h1>
+
+  <div class="example">
+    <h2>예제 1: 화면 너비</h2>
+    <p>화면 너비가 600px 이하인 경우 배경색과 글꼴 크기가 변경됩니다.</p>
+    <div class="example-box width">화면 너비가 600px 이하일 때 스타일이 적용됩니다.</div>
+  </div>
+
+  <div class="example">
+	<h2>예제 2: 해상도</h2>
+	<p>화면 너비에 따라 배경색이 변경됩니다.</p>
+	<div class="example-box multi-width">화면 너비에 따라 배경색이 변경됩니다.</div>
+  </div>
+
+  <div class="example">
+    <h2>예제 3: 화면 방향</h2>
+    <p>화면 방향이 가로 모드일 때 배경색과 글꼴 크기가 변경됩니다.</p>
+    <div class="example-box orientation">화면 방향이 가로 모드일 때 스타일이 적용됩니다.</div>
+  </div>
+
+
+</body>
+</html>
