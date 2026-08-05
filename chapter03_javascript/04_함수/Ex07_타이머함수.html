@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    /*
+        타이머 함수
+        - 특정한 시간에 특정한 함수를 실행하는 함수
+        - 전달 인자 : 함수, 시간(밀리초)
+        - 종류
+            1. setTimeout : 지정된 시간 후 함수 한 번 실행 , 비동기 함수
+            2. clearTimeout : 해당 setTimeout 중지
+            3. setInterval : 지정된 시간 마다 함수 반복 실행
+            4. clearInterval : 해당 setInterval 중지
+    */
+
+    // 1. setTimeout 함수 이용
+    // 3초 후에 "안녕하세요" 경고창 출력
+    setTimeout(()=>{
+        alert("안녕하세요.")
+    },3000);
+    console.log("끝");
+    
+
+</script>
+</html>
