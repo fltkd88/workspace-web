@@ -21,11 +21,39 @@
 
     // 1. setTimeout 함수 이용
     // 3초 후에 "안녕하세요" 경고창 출력
-    setTimeout(()=>{
+    const hello = setTimeout(()=>{
         alert("안녕하세요.")
     },3000);
     console.log("끝");
     
+    clearTimeout(hello);
 
+    // 2. setInterval 함수 이용
+    // 1초 마다 숫자를 1씩 증가시켜서 출력
+    // 10초만 진행
+
+    let cnt = 0;
+    const inc = setInterval(()=>{
+        console.log(++cnt);
+        if(cnt >= 10){
+            clearInterval(inc);
+        }
+    }, 1000);
+    clearInterval(inc);
+
+    // 3. setTimeout 함수 이용
+    // 1초 마다 숫자를 1씩 증가시켜서 출력
+    // 10초만 진행
+    function myTimer(){
+        setTimeout(()=>{
+            console.log(++cnt);
+            if(cnt < 10){
+                myTimer();
+            }
+        }, 1000);
+    };
+    myTimer();
+    
+    
 </script>
 </html>

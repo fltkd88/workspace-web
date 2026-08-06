@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="clock">0000-00-00 00:00:00</h1>
+
+    <button onclick="run()">현재 시간 출력</button>
+    <button onclick="stop()">중지</button>
+    <button onclick="reset()">초기화</button>
+</body>
+<script>
+    /*
+        Q1. 정수를 n자리로 맞춰서 사용하기
+        - num 값이 1, 2, 3 이라면
+        console.log( makeZeroNum(num, 2) );
+         => 01, 02, 03
+        console.log( makeZeroNum(num, 3) );
+         => 001, 002, 003
+        console.log( makeZeroNum(num, 4) );
+         => 0001, 0002, 0003
+
+        * 함수 makeZeroNum 을 만드시오
+    */
+
+    function makeZeroNum(num, n){
+        let zero = String(num);
+        
+        while(zero.length < n){
+            zero = '0' + zero;
+        }
+        return zero;
+
+        // for(let i=zero.length; i < n; i++){
+        //     zero = '0' + zero;
+        // }
+        // return zero; 
+        // for 문 예시
+    };
+    console.log(makeZeroNum(36 , 4));
+    // 내장 함수
+    console.log( '1'.padStart(3, '0'));
+    
+    /*
+        Q2. 현재 날짜와 시간을 다음과 같은 형식으로 출력
+            하는 함수 to12Times를 작성하시오.
+            ex) 2026-8-6 오전 10:3 
+            * HTML 요소 가져오기
+                getElementById("아이디")
+            * 요소 내부에 값 변경 : 
+                요소.innerText = 값
+    */
+
+    function to12Times() {
+        let date = new Date();
+        let y = date.getFullYear();
+        let m = date.getMonth() + 1;
+        let d = date.getDate();
+        let t = date.getHours();
+        let min = date.getMinutes();
+        let amap;
+        if (t >= 12) {
+            amap ='오후';
+            if(t != 12){
+                t -= 12;
+            } 
+        } else {
+            amap ='오전'
+            if(t == 0){
+                h = 12;
+            }
+        }
+        const resultDate = `${y}-${m}-${d} ${amap} ${t} : ${min}`;
+        console.log(resultDate);
+        const clock = document.getElementById("clock");
+        clock.innerText = resultDate;
+    }
+    //to12Times();
+
+    /*
+        Q3. 현재 날짜와 시간을 다음과 같은 형식으로
+        출력하는 함수 watch를 작성하시오.
+        ( 시작 버튼과 중지 버튼 이용 )
+        ex ) 2026-08-06 11:03:08 ( 초는 계속 바뀜 )!!
+        형식 주의!!
+    */
+    
+
+    function watch(){
+        let date1 = new Date();
+
+        let year = date1.getFullYear();
+        let month = String(date1.getMonth() + 1).padStart(2,'0');
+        let day = String(date1.getDate()).padStart(2,'0');
+
+        let time = String(date1.getHours()).padStart(2,'0');
+        let minute = String(date1.getMinutes()).padStart(2,'0');
+        let second = String(date1.getSeconds()).padStart(2,'0');
+
+        const resultDate1 = `${year}-${month}-${day} ${time} : ${minute} : ${second}`;
+        const clock1 = document.getElementById("clock");
+        clock1.innerText = resultDate1;
+    }
+    let timer;
+    function run(){
+        watch();
+        timer = setInterval(watch, 1000);
+    }
+
+    function stop(){
+        clearInterval(timer);
+    }
+
+    function reset(){
+        stop();
+        const clock1 = document.getElementById("clock");
+        clock1.innerText = `0000-00-00 00:00:00`;
+    }
+</script>
+</html>

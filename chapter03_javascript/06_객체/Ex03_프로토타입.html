@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        프로토타입(prototype)
+        - 생성자 함수는 프로토타입 프로퍼티를 가지고 있다.
+        -생성자로부터 생성된 인스턴스(객체)는
+        프로토타입으로부터 프로퍼티와 메소드를 상속 받는다.
+        - 생성자 함수와 프로토타입은 서로 참조할 수 있다.
+
+        즉 생성자 함수가 만들어질 때 프로토타입도 생성된다.
+    */
+
+    // 1. 일반 생성자
+    // 생성자 함수 생성
+    function Person(name, age){
+        this.name = name;
+        this.age = age;
+        this.eyes = 2;
+        this.nose = 1;
+    }
+    // 객체 생성
+    let p1 = new Person('김씨', 20);
+    let p2 = new Person('박씨', 25);
+    console.log(p1);
+    console.log(p2);
+    console.log(p1.eyes);
+    console.log(p2.eyes);
+    
+
+
+</script>
+</html>
