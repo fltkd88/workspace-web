@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            color: white;
+            background-color: red;
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        #text {
+            font-size: 2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p id="text">빨</p>
+    </div>
+</body>
+<script>
+    // 1초 마다 색과 글자가 변경되도록 하는 함수 rainbow를 작성하시오.
+    let i = 0;
+    let colors = ["red","orange","yellow","green","blue","navy","purple"];
+    let contents = ["빨","주","노","초","파","남","보"];
+    
+    const rainbow = function(){
+        document.querySelector("#box").style.backgroundColor = colors[i+1];
+        document.querySelector("#text").textContent = contents[i+1];
+        i++;
+        if(i >= colors.length){
+            i = 0;
+        }
+    };
+    setInterval(rainbow, 1000);
+
+    const rainbow1 = function(){
+        const box = document.querySelector("#box");
+        const text = document.querySelector("#text");
+
+        box.style.backgroundColor = colors[i];
+        text.innerHTML = contents[i];
+        i++;
+
+        if ( i == contents.length){
+            i = 0;
+        }
+        setTimeout(rainbow1, 1000);
+    }
+    rainbow1();
+</script>
+</html>

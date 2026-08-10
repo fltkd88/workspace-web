@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        클래스(class)
+        - 객체 지향 프로그램에서 특정 객체를 생성하기 위해
+        필드와 메소드를 정의한 틀
+        - 동적으로 여러 객체를 생성하는 것이 목표
+        - 이름은 대문자로 시작하며 앞에 class 키워드 사용
+    */
+    class Person{
+        constructor(age){
+            this.age = age;
+        }
+        set name(name){
+            if(name){  // 문자를 입력 받았다면 true 로 인식
+                this._name = name;  // 필드랑 메소드를 구분짖기 위해 _ 사용
+            }
+        }
+        get name(){
+            return this._name.toUpperCase();
+        }
+        print(){
+            console.log(`이름은 ${this.name}입니다.`);
+        }
+    }
+    const kim = new Person();
+    kim.name = 'kim'  // setter 역활
+    console.log(kim.name);  // getter 역활
+    
+</script>
+</html>

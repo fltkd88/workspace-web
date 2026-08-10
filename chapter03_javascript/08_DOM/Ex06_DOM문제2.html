@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>DOM</h1>
+        <p class="ex">Document</p>
+        <p class="ex">Object</p>
+        <p>Model</p>
+    </div>
+</body>
+<script>
+    // Q. 클래스명이 "ex"인 요소들의 글자 색을
+    // 빨간색으로 변경하시오.
+
+    const ex = document.querySelectorAll('.ex');
+    ex[0].style['color'] = 'red';
+    ex[1].style['color'] = 'red';
+
+    // 일반 반복문
+    const ex1 = document.getElementsByClassName('ex');
+    for(let i=0; i<ex.length; i++){
+        ex1[i].style.color = 'red';
+    };
+    // for-each 문
+    // getElementsByClassName()를 통해 
+    // HTMLCollection 객테를 반환 받으면
+    // HTMLCollection 객체에는 forEach() 메소드가
+    // 없기 떄문에 사용할 수 없다.
+    const ex2 = document.querySelectorAll('.ex');
+    ex2.forEach( i => {
+        i.style.color = 'red';
+    })
+
+    const ex3 = document.querySelectorAll('.ex');
+    ex3.map(i => {i.style.color = 'red'});
+
+
+</script>
+</html>
