@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <form action="#" name="myForm">
+        <!--
+        성명 : name = name
+        이메일 : name=email
+        우편번호 : name=zipCode
+        지역 : name=region (value = 0,1,2,3)
+        -->
+        <div>
+            성명  <input type="text" name="name"> <br>
+        </div>
+        <div>
+            이메일  <input type="text" name="email"> <br>
+        </div>
+        <div>
+            우편번호  <input type="text" name="zipCode"> <br>
+        </div>
+        <div>
+            지역 <select name="region">
+                    <option value="0">::지역선택::</option>
+                    <option value="1">서울</option>
+                    <option value="2">경기</option>
+                    <option value="3">인천</option>
+                </select>
+        </div>
+        <button type="button" onclick="sendData()">전송</button>
+    </form>
+</body>
+<script>
+    function sendData(){
+        /*
+            1. 이름은 필수로 입력되어야 하며
+                2~6자리로 입력되어야 한다.
+            2. 이메일은 @ 포함되어야 한다.
+                - 첫 글자가 @인지, 마지막 글자가 @인지도 확인
+            3. 우편번호는 5자리 숫자로 입력되어야 한다.
+            4. 지역은 필수로 선택되어야 한다.
+        */
+
+        // form 객체
+        const form = document.forms.myForm;
+        const {name, email, zipCode, region} = form;
+        
+        // 이름
+        if(form.name.value.length < 2 || form.name.value.length > 6){
+            alert(`이름은 2~6자리로 반드시 입력해야합니다.`);
+            form.name.value = ''  
+            form.name.focus(); 
+            return;
+        };
+        // 이메일
+        if(form.email.value == '' || form.email.value.indexOf('@') == -1){
+            alert(`이메일에 @가 포함되어야 합니다.`);
+            form.email.value = ''  
+            form.email.focus(); 
+            return;
+        };
+        if(form.email.value.charAt(0)=='@' || form.email.value.charAt(form.name.value.length -1)=='@'){
+            alert(`이메일의 첫글자와 마지막에 @가 포함되면 안됩니다.`);
+            form.email.value = ''  
+            form.email.focus(); 
+            return;
+        };
+
+        
+        // 2. 이메일 @ 포함(처음, 끝 확인) // 선생님 답안
+        const indexOfAt = email.value.indexOf("@");
+        // @가 처음이거나, 마지막 값인 경우, @를 못 찾은 경우
+        // indexOfAt : 0 -> 처음 
+        // indexOfAt : -1 -> 값이 없을 때
+        // indexOfAt : length-1 -> 끝
+        if(indexOfAt == 0 || 
+            indexOfAt == -1 ||
+            indexOfAt == email.value.length-1){
+            alert('올바른 이메일 형식이 아닙니다.');
+            return;
+        };
+
+
+        // 우편번호
+        if(form.zipCode.value.length != 5 || isNaN(zipCode.value)){
+            alert(`우편번호 5자리 숫자로 입력하세요`);
+            form.zipCode.value = ''  
+            form.zipCode.focus(); 
+            return;
+        };
+        // 지역선택
+        if(form.region.value === '0'){
+            alert(`지역을 필수로 선택하셔야 합니다.`);
+            form.zipCode.value = ''  
+            form.zipCode.focus(); 
+            return;
+        };
+        form.submit();
+    }
+</script>
+</html>
