@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 객체
+    const object = {
+        a : 1,
+        b : 2
+    };
+    // 비구조화 할당
+    // - 객체안에 있는 값을 추출해서 다른 변수
+    // 상수에 선언할 수 있다.
+    const {a, b} = object;
+    console.log(a, b);
+    
+    // 함수의 파라미터에서도 비구조화 할당 가능
+    function print({a, b, c = 10}){
+        console.log(a, b, c);
+    };
+    print(object);
+
+    // 비구조화 할당 시 이름 바꾸기
+    const animal = {
+        name : '멍멍이',
+        type : '개'
+    };
+    // 변수 이름을 nickname을 사용하고 싶을 때
+    const {name : nickname} = animal;
+    console.log(nickname);
+    
+    // 배열에서도 비구조화 할당 가능
+    const array = [1, 2];
+    const [one, two, th = 3] = array;
+    console.log(one, two, th);
+    
+    // 깊은 값 비구조화 할당
+    // - 객체의 깊은 곳에 있는 값을 꺼내는 방식
+    const deepObject = {
+        state : {
+            information : {
+                name : 'kim',
+                languages : ['korean', 'english']
+            }
+        },
+        value : 5
+    };
+    // 여기서 name, languages, value를 꺼낼 때
+    const {name, languages} = deepObject.state.information;
+    const {value} = deepObject;
+    const extracted = {   // 프로퍼티랑 변수명이 같으면 프로퍼티 생략 가능
+        name,
+        languages,
+        value
+    }
+    console.log(extracted);
+    
+    
+
+</script>
+</html>

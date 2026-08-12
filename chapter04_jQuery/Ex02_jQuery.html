@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <h1>jQuery</h1>
+    <div class="wrap">
+        <ul id="web">
+            <li class="html">html</li>
+            <li class="css">css</li>
+            <li class="javascript">javascript</li>
+            <li class="jquery">jquery</li>
+        </ul>
+    </div>
+</body>
+<script>
+    // 바닐라스크립트 방식
+    // 1. 요소.style.속성 = 값
+    // 2. 요소.setAttribute("속성", "값")
+
+    // 제이쿼리 스타일
+    // style == css
+
+    // 1. 단일 옵션 적용
+    $(".html").css('color', 'yellow');
+    $(".css").css('color', 'red');
+
+    // 2. 다중 옵션 적용
+    $("h1").css({"color":"blue"});
+    $(".wrap").css({"background-color":"pink"});
+</script>
+</html>

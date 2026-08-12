@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <p id="pa">아이디 p 태그</p>
+    <p class="pb">클래스 p 태그</p>
+    <button id="idBtn">아이디 숨기기 버튼</button>
+    <button id="classBtn">클래스 숨기기 버튼</button>
+    <button id="tagBtn">태크 숨기기 버튼</button>
+</body>
+<script>
+    /*
+        jQuery 형식
+        - ${선택자}.action();
+        1. $ 기호 : jQuery를 정의하고 jQuery를 호출하여 사용
+        2. 선택자 : HTML요소를 찾음
+        3. action() : 선택된 요소가 행하는 동작
+    */
+
+    // document.querySelector('#idBtn');
+    $('#idBtn').click(function(){
+        $('#pa').hide();    // 요소 숨길 때
+        // $('#pa').show(); // 요소 보여줄 때
+    });
+    $('.classBtn').click(function(){
+        $('.pb').hide();    // 요소 숨길 때
+        // $('.pb').show(); // 요소 보여줄 때
+    });
+</script>
+</html>

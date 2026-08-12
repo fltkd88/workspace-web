@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    /*
+        스프레드(spread)  ( ... )
+        - ES6 에서 도입되었으며, 펼치다 퍼트리다라는 의미를 가진다.
+        - 객체나 배열을 펼칠 수 있다.
+        - 배열이나 객체를 복사, 병합, 함수에 값을 전달할 때 사용
+    */
+
+    // 1. 배열 복사
+    // 배열을 그냥 대입하면 복사가 아닌 같은 배열 주소를 참조
+    let arr1 = [10, 20, 30];
+    let arr2 = [...arr1];
+    arr2[0] = 100;
+    console.log(arr1);
+    console.log(...arr1);
+
+    // 2. 배열 합치기
+    let arr3 = [10, 20];
+    let arr4 = [30, 40];
+    let result = arr3.concat(arr4);
+    console.log(result);
+    // 스프레드 이용
+    result = [...arr3, ...arr4];
+    console.log(result);
+    
+    // 3. 함수 매개 변수로 전달
+    let arr = [10, 20, 30];
+    function add(a, b, c){
+        return a+b+c;
+    };
+    add(10 ,20, 30);     // 스프레드 없이 함수 호출
+    add(...arr);         // 스프레드로 함수 호출
+
+    // 4. 객체에서 사용
+    const slime = {
+        name : '슬라임'
+    };
+    const cuteSlime = {
+        ...slime,
+        attribute : 'cute'
+    };
+    const purpleCuteSlime = {
+        ...cuteSlime,
+        color : 'purple'
+    };
+    console.log(slime);
+    console.log(cuteSlime);
+    console.log(purpleCuteSlime);
+    
+
+    /*
+        레스트(rest)
+        - 문법은 spread와 같으나 역할이 다르다.
+        - rest는 객체, 배열에서 사용 가능하며
+        비구조화 할당 문법을 따른다.
+    */
+    // 이름이 꼭 rest일 필요는 없다.
+    const {color, ...rest} = purpleCuteSlime;
+    console.log(rest);
+    
+    const numbers = [0, 1, 2, 3, 4, 5, 6];
+    const [one, ...rest2] = numbers;
+    console.log(one);
+    console.log(rest2);
+    
+</script>
+</html>

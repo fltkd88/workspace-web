@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    // async / await
+    // ES8 에서 추가된 문접으로 프로미스를 조금 더 편하게
+    // 사용할 수 있도록 해준다.
+
+    /*
+        async
+        - 비동기 처리를 위해 사용하는 문법
+        - async 키워드를 함수 앞에 붙인다.
+        - 함수 앞에 async가 붙으면 함수의 
+            리턴 값은 프로미스를 반환
+    */
+
+    // 기존 함수
+    function addOne(n){
+        return n + 1;
+    }
+    console.log(addOne(2));
+    
+    // async 함수
+    async function addTwo(n){
+        return n + 2;
+    }
+    addTwo(2).then(result => {
+        console.log(result);
+    });
+
+    /*
+        await
+        - async 함수 안에서만 동작
+        - 프로미스의 then() 부분을 대체
+        - await 키워드를 만나면 프로미스가 끝날 때까지 대기
+    */
+    function myProm(){
+        return new Promise(resolve =>{
+            resolve('완료');
+        });
+    }
+    // async가 없는 일반 함수
+    async function print(){
+        const result = await myProm();
+        console.log(result);
+    }
+    print();
+</script>
+</html>

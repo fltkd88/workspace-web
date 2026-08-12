@@ -29,13 +29,23 @@
     document.querySelector("#box").onmouseout = function(){
         box.innerHTML = '안녕히 가세요';
     }
+    // addEventListener 사용시
+    document.querySelector("#box").addEventListener('mouseover', (e)=>{
+        e.currentTarget.innerHTML = '안녕하세요';
+    });
+    document.querySelector("#box").addEventListener('mouseout', (e)=>{
+        e.currentTarget.innerHTML = '안녕히 가세요';
+    });
     // 2번 - 해당 input에 키보드를 통해 값을 입력하면
     // 키보드의 키 코드 값을 div 요소 안에 표시
     // 키 코드 : e.keyCode (e는 이벤트 변수)
-    
     document.querySelector('input').onkeydown = function(e){
-        document.querySelector('#content').innerHTML = e.keyCode;
+        document.querySelector('#content').innerHTML = e.key.charCodeAt(0); // 아스키코드 대소문자 비교 구문
     }
+    // addEventListener 사용시
+    document.querySelector('input').addEventListener('keydown', (e)=>{
+        document.querySelector('#content').innerHTML = e.key.charCodeAt(0);
+    });
     // 3번 - 위 HTML요소를 통해 +1 버튼 클릭 시
     // count 값을 1증가, -1버튼 클릭  시 count 값을 1감소
     let num = 0;
@@ -44,6 +54,13 @@
     };
     document.querySelector('#decrease').onclick = function(){
         document.querySelector('#count').innerText = --num;
-    }
+    };
+    // addEventListener 사용시
+    document.querySelector('#increase').addEventListener('click', (e)=>{
+        document.querySelector('#count').innerText = ++num;
+    });
+    document.querySelector('#decrease').addEventListener('click', (e)=>{
+        document.querySelector('#count').innerText = --num;
+    });
 </script>
 </html>

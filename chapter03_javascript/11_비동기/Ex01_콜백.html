@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    /*
+        콜백 함수
+        - 다른 함수의 파라미터로 전달되는 함수
+        function test(callback){
+            callback();
+        }
+
+        콜백이 필요한 이유
+        - 프로그래밍 언어는 원칙상 위에서 아래로 코드가 실행되지만,
+        코드의 특성이나 환경들 때문에 코드가 순서대로 실행되지 않는
+        비동기 상황이 있다.
+        특정 함수가 끝나고 다른 함수가 실행되어야 하는 상황에서
+        실행의 흐름을 제어하는 것이 목적
+    */
+    const print = () => {
+        console.log(`3초 뒤에 실행`);
+    }
+    setTimeout(print, 3000);
+    console.log(`print 이후 실행`);
+    
+    // 숫자를 전달 받아서 1초마다 최대 5까지
+    // 1씩 더해서 화면에 출력하는 함수를
+    // 연속적으로 실행하는 코드
+    const printCallback = function(n, callback){
+        setTimeout(()=>{
+            let val = n + 1;
+            console.log(val);
+            if(val < 5){
+                callback(val);
+            }
+        },1000)
+    }
+    printCallback(2, (n)=>{
+        printCallback(n ,(n)=>{
+            printCallback(n ,(n)=>{
+                printCallback(n ,(n)=>{
+                    printCallback(n ,(n)=>{
+                    });
+                });
+            });
+        });
+    });
+</script>
+</html>
